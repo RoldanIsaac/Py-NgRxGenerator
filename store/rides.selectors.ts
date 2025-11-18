@@ -1,24 +1,22 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { RideState, RidesState } from './rides.reducer';
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { RideState, RidesState } from "./rides.reducer";
 
 // -----------------------------------------------------------------------------------------------------
 // @ Feature Selectors
 // -----------------------------------------------------------------------------------------------------
 
-export const selectAllRidesState = createFeatureSelector<RidesState>('rides');
-
-export const selectSingleRideState = createFeatureSelector<RideState>('ride');
+export const selectRidesState = createFeatureSelector<RidesState>("rides");
 
 // -----------------------------------------------------------------------------------------------------
 // @ Ride
 // -----------------------------------------------------------------------------------------------------
 
 export const selectAllRides = createSelector(
-    selectAllRidesState,
-    (state: RidesState) => state.rides
+  selectRidesState,
+  (state: RidesState) => state.rides
 );
 
 export const selectSingleRide = createSelector(
-    selectSingleRideState,
-    (state: RideState) => state.ride
+  selectRidesState,
+  (state: RidesState) => state.ride
 );
